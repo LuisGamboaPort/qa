@@ -164,6 +164,38 @@
   .contact-item { background: var(--black); padding: 1.3rem 1.5rem; }
   .contact-label { font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; color: var(--muted); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 0.35rem; }
   .contact-val { font-size: 0.9rem; }
+  .contact-profile {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 2rem;
+  align-items: center;
+  margin-bottom: 2.5rem;
+}
+
+.contact-photo-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contact-photo {
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 2px;
+  border: 1px solid #222;
+  filter: grayscale(10%);
+  transition: all 0.25s ease;
+}
+
+.contact-photo:hover {
+  border-color: var(--gold);
+  filter: grayscale(0%);
+}
+
+.contact-profile-copy {
+  width: 100%;
+}
 
   footer { text-align: center; padding: 3rem 2rem; font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: #fafafa; }
 
@@ -408,9 +440,7 @@
 
   <section id="contact">
     <p class="label">Contact</p>
-    <p class="contact-intro">
-      Looking for a <b>senior QA engineer or QA lead</b> who can own quality end-to-end and bring AI into your testing workflow? Let's talk.
-    </p>
+
            <div class="contact-profile">
 
   <div class="contact-photo-wrap">
