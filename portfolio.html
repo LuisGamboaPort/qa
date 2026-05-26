@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Luis Gamboa — QA Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #0a0a0a;
+    --white: #f0efe9;
+    --gold: #c9a84c;
+    --gold-dim: #7a6030;
+    --muted: #666;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    line-height: 1.8;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--gold); text-decoration: none; transition: opacity 0.2s; }
+  a:hover { opacity: 0.75; }
+
+  nav {
+    position: fixed; top: 0; left: 0; right: 0;
+    background: rgba(10,10,10,0.97);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid #1c1c1c;
+    padding: 1.1rem 2.5rem;
+    display: flex; justify-content: space-between; align-items: center;
+    z-index: 100;
+  }
+  .nav-name { font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: var(--gold); letter-spacing: 0.12em; }
+  .nav-links { display: flex; gap: 2.5rem; }
+  .nav-links a { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--gold); opacity: 1; }
+
+  main { max-width: 720px; margin: 0 auto; padding: 0 2rem; }
+  section { padding: 5.5rem 0 3rem; border-bottom: 1px solid #161616; }
+  section:last-child { border-bottom: none; }
+
+  .label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.68rem; color: var(--gold);
+    letter-spacing: 0.2em; text-transform: uppercase;
+    margin-bottom: 2.8rem;
+    display: flex; align-items: center; gap: 1rem;
+  }
+  .label::after { content: ''; flex: 1; height: 1px; background: #1c1c1c; }
+
+  #hero { padding-top: 9rem; padding-bottom: 5rem; }
+  .hero-tag {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem; color: var(--black);
+    background: var(--gold);
+    padding: 0.3rem 0.9rem; letter-spacing: 0.1em;
+    text-transform: uppercase; margin-bottom: 1.8rem;
+  }
+  .hero-name {
+    font-family: 'Georgia', serif;
+    font-size: clamp(3rem, 9vw, 5.5rem);
+    font-weight: normal;
+    letter-spacing: -0.02em;
+    line-height: 1.0;
+    margin-bottom: 0.5rem;
+    color: var(--white);
+  }
+  .hero-name span { color: var(--gold); }
+  .hero-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem; color: var(--muted);
+    letter-spacing: 0.15em; text-transform: uppercase;
+    margin-bottom: 2rem;
+  }
+  .hero-sub {
+    font-size: 1.05rem; color: #999; max-width: 540px;
+    margin-bottom: 0.8rem; font-weight: 300; line-height: 1.75;
+  }
+  .hero-sub b { color: var(--white); font-weight: 500; }
+  .hero-note { font-size: 0.82rem; color: var(--muted); margin-bottom: 2.8rem; font-style: italic; }
+  .hero-links { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 0.75rem 1.6rem; display: inline-block; transition: all 0.2s;
+    border: 1px solid var(--gold); color: var(--gold);
+  }
+  .btn:hover { background: var(--gold); color: var(--black); opacity: 1; }
+  .btn-ghost { border-color: #2a2a2a; color: var(--muted); }
+  .btn-ghost:hover { border-color: var(--white); color: var(--white); background: transparent; }
+
+  .about-p { font-size: 1rem; color: #aaa; margin-bottom: 1.1rem; font-weight: 300; }
+  .about-p b { color: var(--white); font-weight: 500; }
+  .about-p span { color: var(--gold); }
+
+  .stats {
+    display: grid; grid-template-columns: repeat(2, 1fr);
+    gap: 1px; background: #181818; border: 1px solid #181818; margin: 3rem 0 0;
+  }
+  .stat { background: var(--black); padding: 1.4rem 1rem; text-align: center; }
+  .stat-num { font-size: 1.9rem; font-weight: 600; color: var(--gold); font-family: 'JetBrains Mono', monospace; line-height: 1; }
+  .stat-num.text { font-size: 1rem; padding-top: 0.45rem; line-height: 1.2; }
+  .stat-label { font-size: 0.7rem; color: var(--muted); margin-top: 0.5rem; line-height: 1.4; }
+
+  .skills-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2.5rem; }
+  .skill-group h3 {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.68rem; color: var(--gold);
+    letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 1rem;
+  }
+  .skill-tag {
+    display: inline-block; font-size: 0.8rem; color: #bbb;
+    border: 1px solid #2a2a2a; padding: 0.35rem 0.8rem;
+    margin: 0.3rem 0.3rem 0 0; transition: all 0.2s; border-radius: 2px;
+  }
+  .skill-tag:hover { border-color: var(--gold); color: var(--white); }
+  .skill-tag.new { border-color: var(--gold-dim); color: var(--gold); background: rgba(201,168,76,0.06); }
+
+  .exp-item { margin-bottom: 3.5rem; padding-bottom: 3.5rem; border-bottom: 1px solid #181818; }
+  .exp-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .exp-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; flex-wrap: wrap; margin-bottom: 0.4rem; }
+  .exp-title { font-size: 1.05rem; font-weight: 600; color: var(--white); }
+  .exp-meta { font-family: 'JetBrains Mono', monospace; font-size: 0.67rem; color: var(--muted); letter-spacing: 0.06em; white-space: nowrap; padding-top: 0.2rem; }
+  .exp-company { font-size: 0.85rem; color: var(--gold); margin-bottom: 1rem; }
+  .exp-list { list-style: none; }
+  .exp-list li {
+    font-size: 0.92rem; color: #999; padding: 0.4rem 0 0.4rem 1.4rem;
+    position: relative; border-bottom: 1px solid #141414; font-weight: 300; line-height: 1.6;
+  }
+  .exp-list li:last-child { border-bottom: none; }
+  .exp-list li::before { content: '›'; position: absolute; left: 0; color: var(--gold); font-size: 1rem; top: 0.4rem; }
+  .exp-list li b { color: var(--white); font-weight: 500; }
+  .ai-badge {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6rem; color: var(--black);
+    background: var(--gold); padding: 0.1rem 0.45rem;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    vertical-align: middle; margin-left: 0.4rem; border-radius: 2px;
+  }
+
+  .certs-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 1px; background: #181818; border: 1px solid #181818; }
+  .cert-item { background: var(--black); padding: 1rem 1.2rem; transition: background 0.2s; }
+  .cert-item:hover { background: #0f0f0f; }
+  .cert-name { font-size: 0.85rem; color: var(--white); font-weight: 500; margin-bottom: 0.2rem; }
+  .cert-issuer { font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; color: var(--gold-dim); letter-spacing: 0.06em; }
+
+  .edu-item { display: flex; gap: 2rem; margin-bottom: 2.2rem; }
+  .edu-year { font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; color: var(--muted); white-space: nowrap; padding-top: 0.2rem; min-width: 70px; }
+  .edu-degree { font-size: 1rem; font-weight: 500; color: var(--white); }
+  .edu-school { font-size: 0.82rem; color: var(--gold); margin-top: 0.15rem; }
+  .edu-note { font-size: 0.78rem; color: #555; margin-top: 0.4rem; font-style: italic; }
+
+  .contact-intro { font-size: 1rem; color: #888; margin-bottom: 2.5rem; font-weight: 300; max-width: 480px; }
+  .contact-intro b { color: var(--white); font-weight: 500; }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: #181818; border: 1px solid #181818; }
+  .contact-item { background: var(--black); padding: 1.3rem 1.5rem; }
+  .contact-label { font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; color: var(--muted); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 0.35rem; }
+  .contact-val { font-size: 0.9rem; }
+
+  footer { text-align: center; padding: 3rem 2rem; font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; color: #2a2a2a; }
+
+  @media (max-width: 600px) {
+    .skills-grid { grid-template-columns: 1fr; }
+    .contact-grid { grid-template-columns: 1fr; }
+    .nav-links { gap: 1.2rem; }
+    .edu-item { flex-direction: column; gap: 0.2rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-name">LG // QA</span>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#experience">Work</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<main>
+
+  <section id="hero">
+    <div class="hero-tag">QA Lead · Automation · AI</div>
+    <h1 class="hero-name">Luis<br><span>Gamboa.</span></h1>
+    <p class="hero-title">Senior QA Engineer &amp; AI Testing Lead</p>
+    <p class="hero-sub">
+      <b>Nearly 8 years breaking software before users do.</b> I lead QA teams, build automation frameworks from zero, and am currently driving the adoption of <b>AI-powered testing</b> in Agile environments — remotely for U.S. companies from Colombia.
+    </p>
+    <p class="hero-note">Playwright · Cypress · Selenium · Gen AI for QA · AWS · Python</p>
+    <div class="hero-links">
+      <a class="btn" href="mailto:lmriosg95@gmail.com">Hire me</a>
+      <a class="btn btn-ghost" href="https://www.linkedin.com/in/luismgamboa" target="_blank">LinkedIn</a>
+      <a class="btn btn-ghost" href="#" onclick="alert('CV coming soon — check back shortly.'); return false;">↓ Download CV</a>
+    </div>
+  </section>
+
+  <section id="about">
+    <p class="label">About</p>
+    <p class="about-p">I'm Luis — a <b>QA Lead and Automation Engineer</b> with nearly 8 years of hands-on experience delivering high-quality software for companies in <span>Canada, the United States, and Colombia.</span></p>
+    <p class="about-p">I don't just find bugs. I <b>build systems that prevent them:</b> test frameworks, CI/CD pipelines, monitoring dashboards, and quality strategies that teams actually use. Software quality is not just my passion — <span>it's my craft, built through years of real-world delivery.</span></p>
+    <p class="about-p">What I value most in my current role: <b>I never lost my technical edge.</b> I lead the team, coach and motivate engineers, run Agile ceremonies, and communicate strategy clearly in both English and Spanish — while still writing automation code myself, reviewing pull requests, and getting my hands dirty in the codebase every day.</p>
+    <p class="about-p">I'm actively leading the transition to <span>AI-assisted Agile testing</span> using <b>Claude Code, Claude, and ChatGPT</b> to accelerate test design, generate automation scripts, and improve coverage analysis — without replacing the human judgment that manual testing and team leadership still require.</p>
+    <p class="about-p">Mechanical Engineer by training. Software quality professional by experience and passion. <span>Linux enthusiast. Lifelong learner. Doer.</span></p>
+
+    <div class="stats">
+      <div class="stat">
+        <div class="stat-num">8</div>
+        <div class="stat-label">Years in QA &amp; Software</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">5</div>
+        <div class="stat-label">Companies · U.S., Canada &amp; Colombia</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num text">QA Lead</div>
+        <div class="stat-label">Manual · Automation · AI</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num text">End-to-end</div>
+        <div class="stat-label">Strategy to Execution</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <p class="label">Skills</p>
+    <div class="skills-grid">
+      <div class="skill-group">
+        <h3>Test Automation</h3>
+        <span class="skill-tag new">Playwright</span>
+        <span class="skill-tag">Cypress</span>
+        <span class="skill-tag">Selenium</span>
+        <span class="skill-tag">Karate / Java</span>
+      </div>
+      <div class="skill-group">
+        <h3>AI &amp; Testing Intelligence</h3>
+        <span class="skill-tag new">Claude Code</span>
+        <span class="skill-tag new">Claude · ChatGPT</span>
+        <span class="skill-tag new">Gen AI for QA</span>
+        <span class="skill-tag">TestRail</span>
+        <span class="skill-tag">Jira Zephyr</span>
+      </div>
+      <div class="skill-group">
+        <h3>Cloud &amp; DevOps</h3>
+        <span class="skill-tag">AWS EC2 · S3 · EKS</span>
+        <span class="skill-tag">Azure DevOps</span>
+        <span class="skill-tag">Jenkins</span>
+        <span class="skill-tag">Docker</span>
+        <span class="skill-tag">Git / BitBucket</span>
+      </div>
+      <div class="skill-group">
+        <h3>Languages &amp; Tools</h3>
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">TypeScript</span>
+        <span class="skill-tag">Java</span>
+        <span class="skill-tag">C / C++</span>
+        <span class="skill-tag">Bash</span>
+        <span class="skill-tag">Postman</span>
+        <span class="skill-tag">MongoDB · SQL</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <p class="label">Experience</p>
+
+    <div class="exp-item">
+      <div class="exp-top">
+        <div>
+          <div class="exp-title">QA Lead <span class="ai-badge">AI Lead</span></div>
+          <div class="exp-company">In Time Tec · United States (Remote from Colombia)</div>
+        </div>
+        <div class="exp-meta">APR 2025 — PRESENT</div>
+      </div>
+      <ul class="exp-list">
+        <li>Leading QA strategy for a <b>U.S. domain &amp; brand protection platform</b> — regression, story validation, and new feature testing.</li>
+        <li><b>Pioneering the adoption of Gen AI for QA</b> within the organization and the client project, using <b>Claude Code, Claude, and ChatGPT</b> to generate and refine automated test scripts and improve Agile quality reporting.</li>
+        <li>Hands-on role: writes and reviews automation code daily with <b>Playwright</b>, executes manual and exploratory testing, and builds CI/CD pipelines with <b>Jenkins and AWS</b> (EC2, S3, EKS).</li>
+        <li>Leads, coaches, and motivates the QA team through Agile ceremonies — bridging technical and business stakeholders fluently in <b>English and Spanish.</b></li>
+        <li>Test management and traceability with <b>Jira Zephyr and TestRail.</b></li>
+      </ul>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-top">
+        <div>
+          <div class="exp-title">Advanced QA Analyst · QA Engineer</div>
+          <div class="exp-company">Pragma S.A · Medellín, Colombia (Remote)</div>
+        </div>
+        <div class="exp-meta">JUN 2024 — APR 2025</div>
+      </div>
+      <ul class="exp-list">
+        <li>Led quality for a <b>FinTech retail real estate MVP</b> built for a U.S. client — from 0 to production.</li>
+        <li>API automation with <b>Karate + Java + Gradle</b>; E2E automation with Cypress.io.</li>
+        <li>Integrated test suites into <b>Azure DevOps Pipelines</b>; participated in every stage of the SDLC.</li>
+        <li>Comprehensive regression testing across multiple environments; user story refinement in Agile sprints.</li>
+      </ul>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-top">
+        <div>
+          <div class="exp-title">Software Systems Test Specialist · QA Engineer</div>
+          <div class="exp-company">Avidbots Corp · Kitchener, Canada (On-site)</div>
+        </div>
+        <div class="exp-meta">SEP 2023 — JUN 2024</div>
+      </div>
+      <ul class="exp-list">
+        <li><b>Completed critical regression release in 80% of planned time</b> — 3D cameras &amp; LiDAR on a scrubbing robot.</li>
+        <li>Engineered and modified <b>170+ test cases</b> covering autonomy, perception, systems, and hardware.</li>
+        <li>Onboarded and <b>mentored 2 new engineers</b> in automation and manual testing over 5 months.</li>
+        <li>Selenium + Docker automation; Jenkins builds for smoke and exploratory testing; SRS documentation.</li>
+      </ul>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-top">
+        <div>
+          <div class="exp-title">QA Technician</div>
+          <div class="exp-company">Viessmann · Waterloo, Canada (Seasonal)</div>
+        </div>
+        <div class="exp-meta">MAR 2022 — JUL 2022</div>
+      </div>
+      <ul class="exp-list">
+        <li>Manual &amp; regression testing of an iOS/Android app for furnace setup — <b>improved 3 releases.</b></li>
+        <li>Simulated failure conditions by modifying microcontroller firmware in C.</li>
+      </ul>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-top">
+        <div>
+          <div class="exp-title">QA Engineer</div>
+          <div class="exp-company">Avidbots Corp · Canada (Remote)</div>
+        </div>
+        <div class="exp-meta">SEP 2020 — DEC 2021</div>
+      </div>
+      <ul class="exp-list">
+        <li>Black box testing of web subscription app; <b>robot KPIs improved up to 20%.</b></li>
+        <li>Built a <b>Python monitoring dashboard</b> with a 1-7-30-90 day quality tracking algorithm.</li>
+        <li>API Swagger scraping to track, triage, and report performance bugs systematically.</li>
+      </ul>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-top">
+        <div>
+          <div class="exp-title">Cleaning Plans Developer · Customer Care</div>
+          <div class="exp-company">Avidbots Corp · Canada (Remote)</div>
+        </div>
+        <div class="exp-meta">JUL 2018 — SEP 2020</div>
+      </div>
+      <ul class="exp-list">
+        <li>Created sales demo data contributing to <b>10+ robot sales per week.</b></li>
+        <li>Improved cleaning plan KPIs by <b>30%</b> through SLAM-based path optimization in ROS/Rviz.</li>
+        <li>Provided technical support to worldwide contractors and sales teams.</li>
+      </ul>
+    </div>
+
+  </section>
+
+  <section id="certs">
+    <p class="label">Certifications</p>
+    <div class="certs-grid">
+      <div class="cert-item"><div class="cert-name">Selenium on Docker</div><div class="cert-issuer">Coursera · 2023</div></div>
+      <div class="cert-item"><div class="cert-name">Cypress Modern Automation</div><div class="cert-issuer">Udemy · 2023</div></div>
+      <div class="cert-item"><div class="cert-name">Python for Data Science &amp; AI</div><div class="cert-issuer">IBM Coursera · 2023</div></div>
+      <div class="cert-item"><div class="cert-name">Linux Shell Scripting</div><div class="cert-issuer">IBM Coursera · 2023</div></div>
+      <div class="cert-item"><div class="cert-name">Git &amp; GitHub Essentials</div><div class="cert-issuer">IBM Coursera · 2022</div></div>
+      <div class="cert-item"><div class="cert-name">Selenium WebDriver + Python</div><div class="cert-issuer">Udemy · 2024</div></div>
+      <div class="cert-item"><div class="cert-name">UX Design Process</div><div class="cert-issuer">Google Coursera · 2021</div></div>
+      <div class="cert-item"><div class="cert-name">Foundations of UX Design</div><div class="cert-issuer">Google Coursera · 2021</div></div>
+      <div class="cert-item"><div class="cert-name">Intro Social Media Marketing</div><div class="cert-issuer">Facebook Coursera · 2021</div></div>
+      <div class="cert-item"><div class="cert-name">Copywriting Digital</div><div class="cert-issuer">Platzi · 2021</div></div>
+      <div class="cert-item"><div class="cert-name">Intro to Software Engineering</div><div class="cert-issuer">IBM Coursera · 2022</div></div>
+      <div class="cert-item"><div class="cert-name">Technical Support Fundamentals</div><div class="cert-issuer">Google Coursera · 2019</div></div>
+    </div>
+  </section>
+
+  <section id="education">
+    <p class="label">Education</p>
+    <div class="edu-item">
+      <div class="edu-year">2021–2023</div>
+      <div>
+        <div class="edu-degree">Postgrad — Embedded Systems Development</div>
+        <div class="edu-school">Conestoga College · Kitchener, Canada · On-site (2 years)</div>
+      </div>
+    </div>
+    <div class="edu-item">
+      <div class="edu-year">2013–2018</div>
+      <div>
+        <div class="edu-degree">BSc. Mechanical Engineering</div>
+        <div class="edu-school">Universidad del Valle · Cali, Colombia</div>
+        <div class="edu-note">Full-tuition merit scholarship · Grade 4.8 / 5.0 · Published research on carbon fiber beam elasticity</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <p class="label">Contact</p>
+    <p class="contact-intro">
+      Looking for a <b>senior QA engineer or QA lead</b> who can own quality end-to-end and bring AI into your testing workflow? Let's talk.
+    </p>
+    <div class="contact-grid">
+      <div class="contact-item">
+        <div class="contact-label">Email</div>
+        <div class="contact-val"><a href="mailto:lmriosg95@gmail.com">lmriosg95@gmail.com</a></div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-label">LinkedIn</div>
+        <div class="contact-val"><a href="https://www.linkedin.com/in/luismgamboa" target="_blank">linkedin.com/in/luismgamboa</a></div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-label">Location</div>
+        <div class="contact-val" style="color:#777;">Colombia · Remote-ready worldwide</div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-label">Languages</div>
+        <div class="contact-val" style="color:#777;">Spanish (Native) · English (C1)</div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>© 2026 Luis Gamboa · QA Engineer · No frameworks. Just clean code.</footer>
+
+</body>
+</html>
