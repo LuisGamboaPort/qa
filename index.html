@@ -1,861 +1,214 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!-- ONLY REPLACE THESE SECTIONS IN YOUR CURRENT FILE -->
 
-<title>Luis Gamboa — Senior QA Engineer</title>
-
-<meta
-  name="description"
-  content="Luis Gamboa — Senior QA Engineer, QA Lead, Automation Engineer, and AI Testing Specialist with experience across U.S., Canadian, and Colombian software companies."
-/>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link
-  href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
-  rel="stylesheet"
-/>
+<!-- ========================= -->
+<!-- REPLACE .stats CSS ONLY -->
+<!-- ========================= -->
 
 <style>
 
-:root{
-  --black:#0a0a0a;
-  --black-soft:#050505;
-  --white:#f2f2f0;
-  --gold:#c9a84c;
-  --gold-dim:#7a6030;
-  --muted:#777;
-  --line:#181818;
+.stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  background: #1a1a1a;
+  border: 1px solid #1a1a1a;
+  margin-top: 3.5rem;
+  overflow: hidden;
 }
 
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
+.stat {
+  background: #050505;
+  padding: 2.4rem 1.8rem;
+  text-align: left;
+  transition: background 0.2s ease;
 }
 
-html{
-  scroll-behavior:smooth;
+.stat:hover {
+  background: #0d0d0d;
 }
 
-body{
-  background:var(--black);
-  color:var(--white);
-  font-family:'Inter',sans-serif;
-  font-size:16px;
-  line-height:1.8;
-  -webkit-font-smoothing:antialiased;
+.stat-num {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 600;
+  color: var(--gold);
+  font-family: 'JetBrains Mono', monospace;
+  line-height: 1;
+  margin-bottom: 1rem;
+  letter-spacing: -0.04em;
 }
 
-a{
-  color:var(--gold);
-  text-decoration:none;
-  transition:all .2s ease;
+.stat-num.text {
+  font-size: 1.15rem;
+  padding-top: 0.25rem;
+  line-height: 1.3;
 }
 
-a:hover{
-  opacity:.8;
+.stat-label {
+  font-size: 0.92rem;
+  color: #9a9a9a;
+  line-height: 1.6;
+  max-width: 240px;
+  font-weight: 300;
 }
 
-img{
-  max-width:100%;
-  display:block;
-}
-
-/* NAV */
-
-nav{
-  position:fixed;
-  top:0;
-  left:0;
-  right:0;
-  z-index:1000;
-
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-
-  padding:1.15rem 2rem;
-
-  background:rgba(10,10,10,.96);
-  backdrop-filter:blur(10px);
-
-  border-bottom:1px solid var(--line);
-}
-
-.nav-name{
-  font-family:'JetBrains Mono',monospace;
-  font-size:.78rem;
-  color:var(--gold);
-  letter-spacing:.14em;
-}
-
-.nav-links{
-  display:flex;
-  gap:2rem;
-}
-
-.nav-links a{
-  font-family:'JetBrains Mono',monospace;
-  font-size:.72rem;
-  color:var(--muted);
-  letter-spacing:.12em;
-  text-transform:uppercase;
-}
-
-.nav-links a:hover{
-  color:var(--gold);
-  opacity:1;
-}
-
-/* LAYOUT */
-
-main{
-  max-width:760px;
-  margin:0 auto;
-  padding:0 2rem;
-}
-
-section{
-  padding:5.5rem 0;
-  border-bottom:1px solid #141414;
-}
-
-section:last-child{
-  border-bottom:none;
-}
-
-.label{
-  display:flex;
-  align-items:center;
-  gap:1rem;
-
-  margin-bottom:2.5rem;
-
-  font-family:'JetBrains Mono',monospace;
-  font-size:.68rem;
-  color:var(--gold);
-
-  letter-spacing:.2em;
-  text-transform:uppercase;
-}
-
-.label::after{
-  content:'';
-  flex:1;
-  height:1px;
-  background:#1d1d1d;
-}
-
-/* HERO */
-
-#hero{
-  padding-top:9rem;
-  padding-bottom:5rem;
-}
-
-.hero-tag{
-  display:inline-block;
-
-  margin-bottom:1.8rem;
-  padding:.35rem .95rem;
-
-  background:var(--gold);
-  color:var(--black);
-
-  font-family:'JetBrains Mono',monospace;
-  font-size:.72rem;
-  letter-spacing:.1em;
-  text-transform:uppercase;
-}
-
-.hero-name{
-  font-family:'Georgia',serif;
-  font-size:clamp(3rem,10vw,5.8rem);
-  line-height:1;
-  font-weight:400;
-  letter-spacing:-.03em;
-
-  margin-bottom:.7rem;
-}
-
-.hero-name span{
-  color:var(--gold);
-}
-
-.hero-title{
-  margin-bottom:2rem;
-
-  font-family:'JetBrains Mono',monospace;
-  font-size:.76rem;
-  color:var(--muted);
-
-  letter-spacing:.16em;
-  text-transform:uppercase;
-}
-
-.hero-sub{
-  max-width:560px;
-
-  margin-bottom:1rem;
-
-  color:#9b9b9b;
-  font-size:1.03rem;
-  line-height:1.85;
-  font-weight:300;
-}
-
-.hero-sub b{
-  color:var(--white);
-  font-weight:500;
-}
-
-.hero-note{
-  margin-bottom:2.5rem;
-
-  color:#666;
-  font-size:.82rem;
-  font-style:italic;
-}
-
-.hero-links{
-  display:flex;
-  gap:1rem;
-  flex-wrap:wrap;
-}
-
-.btn{
-  display:inline-block;
-
-  padding:.78rem 1.5rem;
-
-  border:1px solid var(--gold);
-
-  font-family:'JetBrains Mono',monospace;
-  font-size:.73rem;
-  color:var(--gold);
-
-  letter-spacing:.1em;
-  text-transform:uppercase;
-}
-
-.btn:hover{
-  background:var(--gold);
-  color:var(--black);
-  opacity:1;
-}
-
-.btn-ghost{
-  border-color:#2a2a2a;
-  color:#8c8c8c;
-}
-
-.btn-ghost:hover{
-  border-color:var(--white);
-  color:var(--white);
-  background:transparent;
-}
-
-/* ABOUT */
-
-.about-p{
-  margin-bottom:1.2rem;
-
-  color:#a0a0a0;
-  font-size:1rem;
-  line-height:1.9;
-  font-weight:300;
-}
-
-.about-p b{
-  color:var(--white);
-  font-weight:500;
-}
-
-.about-p span{
-  color:var(--gold);
-}
-
-/* STATS */
-
-.stats{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-
-  gap:1px;
-
-  margin-top:3.5rem;
-
-  background:#1a1a1a;
-  border:1px solid #1a1a1a;
-
-  overflow:hidden;
-}
-
-.stat{
-  padding:2.4rem 1.8rem;
-  background:var(--black-soft);
-
-  transition:background .2s ease;
-}
-
-.stat:hover{
-  background:#0d0d0d;
-}
-
-.stat-num{
-  margin-bottom:1rem;
-
-  font-family:'JetBrains Mono',monospace;
-  font-size:clamp(2rem,5vw,3rem);
-  font-weight:600;
-  color:var(--gold);
-
-  line-height:1;
-  letter-spacing:-.04em;
-}
-
-.stat-label{
-  max-width:260px;
-
-  color:#9a9a9a;
-  font-size:.95rem;
-  line-height:1.7;
-  font-weight:300;
-}
-
-/* SKILLS */
-
-.skills-grid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:2.5rem;
-}
-
-.skill-group h3{
-  margin-bottom:1rem;
-
-  font-family:'JetBrains Mono',monospace;
-  font-size:.68rem;
-  color:var(--gold);
-
-  letter-spacing:.14em;
-  text-transform:uppercase;
-}
-
-.skill-tag{
-  display:inline-block;
-
-  margin:.3rem .3rem 0 0;
-  padding:.35rem .8rem;
-
-  border:1px solid #2a2a2a;
-  border-radius:2px;
-
-  color:#bbb;
-  font-size:.8rem;
-
-  transition:all .2s ease;
-}
-
-.skill-tag:hover{
-  border-color:var(--gold);
-  color:var(--white);
-}
-
-.skill-tag.new{
-  border-color:var(--gold-dim);
-  color:var(--gold);
-  background:rgba(201,168,76,.05);
-}
-
-/* EXPERIENCE */
-
-.exp-item{
-  margin-bottom:3.5rem;
-  padding-bottom:3rem;
-
-  border-bottom:1px solid #181818;
-}
-
-.exp-item:last-child{
-  margin-bottom:0;
-  padding-bottom:0;
-  border-bottom:none;
-}
-
-.exp-top{
-  display:flex;
-  justify-content:space-between;
-  align-items:flex-start;
-  gap:1rem;
-  flex-wrap:wrap;
-
-  margin-bottom:.6rem;
-}
-
-.exp-title{
-  font-size:1.05rem;
-  font-weight:600;
-}
-
-.exp-company{
-  margin-top:.15rem;
+</style>
 
-  color:var(--gold);
-  font-size:.86rem;
-}
-
-.exp-meta{
-  padding-top:.2rem;
-
-  font-family:'JetBrains Mono',monospace;
-  font-size:.67rem;
-  color:var(--muted);
-
-  letter-spacing:.08em;
-}
-
-.exp-list{
-  list-style:none;
-}
-
-.exp-list li{
-  position:relative;
-
-  padding:.55rem 0 .55rem 1.5rem;
-
-  color:#9b9b9b;
-  font-size:.92rem;
-  line-height:1.7;
-  font-weight:300;
-
-  border-bottom:1px solid #141414;
-}
-
-.exp-list li:last-child{
-  border-bottom:none;
-}
-
-.exp-list li::before{
-  content:'›';
-
-  position:absolute;
-  left:0;
-  top:.55rem;
-
-  color:var(--gold);
-  font-size:1rem;
-}
-
-.exp-list b{
-  color:var(--white);
-  font-weight:500;
-}
-
-.ai-badge{
-  display:inline-block;
 
-  margin-left:.45rem;
-  padding:.1rem .45rem;
+<!-- ========================= -->
+<!-- REPLACE CONTACT PROFILE CSS ONLY -->
+<!-- ========================= -->
 
-  background:var(--gold);
-  color:var(--black);
+<style>
 
-  font-family:'JetBrains Mono',monospace;
-  font-size:.58rem;
-
-  letter-spacing:.08em;
-  text-transform:uppercase;
-}
-
-/* CONTACT */
-
-.contact-profile{
-  display:grid;
-  grid-template-columns:150px 1fr;
-
-  gap:2.5rem;
-  align-items:center;
-
-  margin-bottom:3rem;
-  padding-bottom:2.5rem;
-
-  border-bottom:1px solid #161616;
-}
-
-.contact-photo{
-  width:150px;
-  height:150px;
-
-  object-fit:cover;
-
-  border:1px solid #252525;
-  border-radius:4px;
-
-  transition:all .25s ease;
+.contact-profile {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  gap: 2.5rem;
+  align-items: center;
+  margin-bottom: 3rem;
+  padding-bottom: 2.5rem;
+  border-bottom: 1px solid #161616;
 }
 
-.contact-photo:hover{
-  border-color:var(--gold);
-  transform:translateY(-2px);
+.contact-photo-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.contact-intro{
-  max-width:540px;
-
-  color:#8d8d8d;
-  font-size:1rem;
-  line-height:1.9;
-  font-weight:300;
+.contact-photo {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 4px;
+  border: 1px solid #252525;
+  filter: grayscale(8%);
+  transition: all 0.25s ease;
 }
 
-.contact-intro b{
-  color:var(--white);
+.contact-photo:hover {
+  border-color: var(--gold);
+  filter: grayscale(0%);
+  transform: translateY(-2px);
 }
-
-.contact-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-
-  gap:1px;
 
-  background:#181818;
-  border:1px solid #181818;
+.contact-profile-copy {
+  width: 100%;
 }
 
-.contact-item{
-  padding:1.4rem 1.5rem;
-  background:var(--black-soft);
-}
+</style>
 
-.contact-label{
-  margin-bottom:.35rem;
 
-  font-family:'JetBrains Mono',monospace;
-  font-size:.65rem;
-  color:var(--muted);
+<!-- ========================= -->
+<!-- REPLACE FOOTER CSS ONLY -->
+<!-- ========================= -->
 
-  letter-spacing:.12em;
-  text-transform:uppercase;
-}
+<style>
 
-.contact-val{
-  font-size:.92rem;
+footer {
+  text-align: center;
+  padding: 4rem 2rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  color: #7a7a7a;
+  border-top: 1px solid #161616;
+  margin-top: 4rem;
+  letter-spacing: 0.04em;
+  line-height: 1.8;
 }
-
-/* FOOTER */
 
-footer{
-  margin-top:4rem;
-  padding:4rem 2rem;
+</style>
 
-  text-align:center;
 
-  border-top:1px solid #161616;
-
-  font-family:'JetBrains Mono',monospace;
-  font-size:.72rem;
-  color:#7a7a7a;
-
-  letter-spacing:.04em;
-  line-height:1.8;
-}
+<!-- ========================= -->
+<!-- REPLACE MOBILE MEDIA QUERY ONLY -->
+<!-- ========================= -->
 
-/* MOBILE */
+<style>
 
-@media(max-width:700px){
+@media (max-width: 600px) {
 
-  nav{
-    padding:1rem 1.2rem;
+  .skills-grid {
+    grid-template-columns: 1fr;
   }
 
-  .nav-links{
-    gap:1rem;
+  .contact-grid {
+    grid-template-columns: 1fr;
   }
 
-  .nav-links a{
-    font-size:.64rem;
+  .nav-links {
+    gap: 1.2rem;
   }
 
-  main{
-    padding:0 1.2rem;
+  .edu-item {
+    flex-direction: column;
+    gap: 0.2rem;
   }
 
-  .skills-grid{
-    grid-template-columns:1fr;
+  .contact-profile {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 1.5rem;
   }
 
-  .stats{
-    grid-template-columns:1fr;
+  .contact-photo {
+    width: 120px;
+    height: 120px;
   }
 
-  .contact-grid{
-    grid-template-columns:1fr;
+  .stats {
+    grid-template-columns: 1fr;
   }
 
-  .contact-profile{
-    grid-template-columns:1fr;
-    text-align:center;
-    gap:1.5rem;
-  }
-
-  .contact-photo{
-    width:120px;
-    height:120px;
-    margin:0 auto;
-  }
-
-  .hero-links{
-    flex-direction:column;
-    align-items:flex-start;
-  }
-
-  .btn{
-    width:100%;
-    text-align:center;
+  .stat {
+    padding: 2rem 1.5rem;
   }
 
 }
 
 </style>
-</head>
 
-<body>
 
-<nav>
-  <div class="nav-name">LG // QA</div>
+<!-- ========================= -->
+<!-- REPLACE ONLY THE STATS HTML -->
+<!-- ========================= -->
 
-  <div class="nav-links">
-    <a href="#about">About</a>
-    <a href="#skills">Skills</a>
-    <a href="#experience">Work</a>
-    <a href="#contact">Contact</a>
-  </div>
-</nav>
+<div class="stats">
 
-<main>
-
-<section id="hero">
-
-  <div class="hero-tag">
-    QA Lead · Automation · AI
+  <div class="stat">
+    <div class="stat-num">8</div>
+    <div class="stat-label">
+      Years in QA &amp; Software
+    </div>
   </div>
 
-  <h1 class="hero-name">
-    Luis<br>
-    <span>Gamboa</span>
-  </h1>
-
-  <p class="hero-title">
-    Senior QA Engineer & AI Testing Lead
-  </p>
-
-  <p class="hero-sub">
-    <b>Nearly 8 years breaking software before users do.</b>
-    I lead QA teams, build automation frameworks from zero,
-    and drive the adoption of AI-powered testing
-    in Agile environments for U.S. companies remotely from Colombia.
-  </p>
-
-  <p class="hero-note">
-    Playwright · Cypress · Selenium · Gen AI for QA · AWS · Python
-  </p>
-
-  <div class="hero-links">
-    <a class="btn" href="mailto:lmriosg95@gmail.com">
-      Hire me
-    </a>
-
-    <a
-      class="btn btn-ghost"
-      href="https://www.linkedin.com/in/luismgamboa"
-      target="_blank"
-    >
-      LinkedIn
-    </a>
-
-    <a
-      class="btn btn-ghost"
-      href="https://drive.google.com/uc?export=download&id=1IyD0chaS_okv9KvIA4J7lpsz7nvVyupU"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      ↓ Download CV
-    </a>
+  <div class="stat">
+    <div class="stat-num">5</div>
+    <div class="stat-label">
+      Companies · U.S., Canada &amp; Colombia
+    </div>
   </div>
 
-</section>
-
-<section id="about">
-
-  <p class="label">About</p>
-
-  <p class="about-p">
-    I'm Luis — a <b>QA Lead and Automation Engineer</b>
-    with nearly 8 years of experience delivering
-    high-quality software for companies across
-    <span>Canada, the United States, and Colombia.</span>
-  </p>
-
-  <p class="about-p">
-    I don't just find bugs.
-    I <b>build systems that prevent them</b>:
-    automation frameworks, CI/CD pipelines,
-    testing strategies, and scalable QA workflows.
-  </p>
-
-  <p class="about-p">
-    I currently lead QA initiatives while remaining hands-on:
-    writing automation code, reviewing pull requests,
-    mentoring engineers, and driving Agile quality processes.
-  </p>
-
-  <p class="about-p">
-    I'm actively implementing
-    <span>AI-assisted testing workflows</span>
-    using Claude Code, Claude, and ChatGPT
-    to accelerate automation, test design,
-    and coverage analysis.
-  </p>
-
-  <div class="stats">
-
-    <div class="stat">
-      <div class="stat-num">8+</div>
-      <div class="stat-label">
-        Years delivering software quality across automation,
-        Agile testing, and QA leadership.
-      </div>
+  <div class="stat">
+    <div class="stat-num text">QA Lead</div>
+    <div class="stat-label">
+      Manual · Automation · AI
     </div>
-
-    <div class="stat">
-      <div class="stat-num">5</div>
-      <div class="stat-label">
-        Companies across the United States,
-        Canada, and Colombia.
-      </div>
-    </div>
-
-    <div class="stat">
-      <div class="stat-num">80%</div>
-      <div class="stat-label">
-        Faster regression execution through
-        automation and process optimization.
-      </div>
-    </div>
-
-    <div class="stat">
-      <div class="stat-num">170+</div>
-      <div class="stat-label">
-        Test cases engineered across robotics,
-        SaaS, and enterprise platforms.
-      </div>
-    </div>
-
   </div>
 
-</section>
-
-<section id="skills">
-
-  <p class="label">Skills</p>
-
-  <div class="skills-grid">
-
-    <div class="skill-group">
-      <h3>Test Automation</h3>
-
-      <span class="skill-tag new">Playwright</span>
-      <span class="skill-tag">Cypress</span>
-      <span class="skill-tag">Selenium</span>
-      <span class="skill-tag">Karate / Java</span>
+  <div class="stat">
+    <div class="stat-num text">End-to-end</div>
+    <div class="stat-label">
+      Strategy to Execution
     </div>
-
-    <div class="skill-group">
-      <h3>AI & Testing Intelligence</h3>
-
-      <span class="skill-tag new">Claude Code</span>
-      <span class="skill-tag new">ChatGPT</span>
-      <span class="skill-tag new">Gen AI for QA</span>
-      <span class="skill-tag">TestRail</span>
-      <span class="skill-tag">Jira Zephyr</span>
-    </div>
-
-    <div class="skill-group">
-      <h3>Cloud & DevOps</h3>
-
-      <span class="skill-tag">AWS</span>
-      <span class="skill-tag">Azure DevOps</span>
-      <span class="skill-tag">Docker</span>
-      <span class="skill-tag">Jenkins</span>
-      <span class="skill-tag">Git</span>
-    </div>
-
-    <div class="skill-group">
-      <h3>Languages & Tools</h3>
-
-      <span class="skill-tag">Python</span>
-      <span class="skill-tag">TypeScript</span>
-      <span class="skill-tag">Java</span>
-      <span class="skill-tag">C / C++</span>
-      <span class="skill-tag">Bash</span>
-      <span class="skill-tag">Postman</span>
-    </div>
-
   </div>
 
-</section>
+</div>
 
-<section id="experience">
 
-  <p class="label">Experience</p>
-
-  <div class="exp-item">
-
-    <div class="exp-top">
-
-      <div>
-        <div class="exp-title">
-          QA Lead
-          <span class="ai-badge">AI Lead</span>
-        </div>
-
-        <div class="exp-company">
-          In Time Tec · United States (Remote)
-        </div>
-      </div>
-
-      <div class="exp-meta">
-        APR 2025 — PRESENT
-      </div>
-
-    </div>
-
-    <ul class="exp-list">
-      <li>
-        Leading QA strategy for a U.S.
-        domain protection platform.
-      </li>
-
-      <li>
-        Building Playwright automation and CI/CD QA pipelines.
-      </li>
-
-      <li>
-        Driving Gen AI adoption in QA workflows
-        using Claude Code and ChatGPT.
-      </li>
-
-      <li>
-        Mentoring QA engineers and coordinating Agile testing efforts.
-      </li>
-    </ul>
-
-  </div>
-
-</section>
+<!-- ========================= -->
+<!-- REPLACE ONLY CONTACT SECTION -->
+<!-- ========================= -->
 
 <section id="contact">
 
@@ -863,35 +216,31 @@ footer{
 
   <div class="contact-profile">
 
-    <div>
+    <div class="contact-photo-wrap">
       <img
-        src="profile.jpeg"
+        src="profile.jpg"
         alt="Luis Gamboa profile picture"
-        class="contact-photo"
-      />
+        class="contact-photo">
     </div>
 
-    <div>
+    <div class="contact-profile-copy">
 
       <p class="contact-intro">
-
-        Looking for a
-        <b>senior QA engineer or QA lead</b>
-        who can modernize software quality
-        using automation and AI-assisted testing workflows?
-
+        Looking for a <b>senior QA engineer or QA lead</b>
+        who can own software quality end-to-end and help
+        modernize your testing workflow with AI?
         <br><br>
 
         Available for:
-
         <br><br>
 
-        • QA Leadership<br>
-        • Playwright Automation<br>
-        • AI Testing Strategy<br>
-        • CI/CD Quality Pipelines<br>
+        • QA Leadership
+        <br>
+        • Playwright Automation
+        <br>
+        • AI Testing Strategy
+        <br>
         • Remote U.S. Teams
-
       </p>
 
     </div>
@@ -902,7 +251,6 @@ footer{
 
     <div class="contact-item">
       <div class="contact-label">Email</div>
-
       <div class="contact-val">
         <a href="mailto:lmriosg95@gmail.com">
           lmriosg95@gmail.com
@@ -912,12 +260,10 @@ footer{
 
     <div class="contact-item">
       <div class="contact-label">LinkedIn</div>
-
       <div class="contact-val">
         <a
           href="https://www.linkedin.com/in/luismgamboa"
-          target="_blank"
-        >
+          target="_blank">
           linkedin.com/in/luismgamboa
         </a>
       </div>
@@ -925,7 +271,6 @@ footer{
 
     <div class="contact-item">
       <div class="contact-label">Location</div>
-
       <div class="contact-val" style="color:#777;">
         Colombia · Remote-ready worldwide
       </div>
@@ -933,7 +278,6 @@ footer{
 
     <div class="contact-item">
       <div class="contact-label">Languages</div>
-
       <div class="contact-val" style="color:#777;">
         Spanish (Native) · English (C1)
       </div>
@@ -943,13 +287,11 @@ footer{
 
 </section>
 
-</main>
+
+<!-- ========================= -->
+<!-- REPLACE FOOTER ONLY -->
+<!-- ========================= -->
 
 <footer>
-  © 2026 Luis Gamboa<br>
-  Senior QA Engineer · Automation · AI Testing<br>
-  Built with plain HTML & CSS.
+  © 2026 Luis Gamboa · QA Engineer · No frameworks. Just clean code.
 </footer>
-
-</body>
-</html>
