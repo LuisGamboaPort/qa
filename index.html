@@ -15,7 +15,8 @@
     --muted: #666;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
+  html { scroll-behavior: smooth; scroll-padding-top: 0; }
+  body { overflow-x: hidden; }
   body {
     background: var(--black);
     color: var(--white);
@@ -54,7 +55,7 @@
   }
   .label::after { content: ''; flex: 1; height: 1px; background: #1c1c1c; }
 
-  #hero { padding-top: 9rem; padding-bottom: 5rem; }
+  #hero { padding-top: 9rem; padding-bottom: 5rem; scroll-margin-top: 0; }
   .hero-tag {
     display: inline-block;
     font-family: 'JetBrains Mono', monospace;
@@ -72,7 +73,7 @@
     margin-bottom: 0.5rem;
     color: var(--white);
   }
-  .hero-name span { color: var(--gold); }
+  .hero-name span { color: var(--gold); letter-spacing: 0; }
   .hero-title {
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.78rem; color: var(--muted);
@@ -191,7 +192,7 @@
 
   <section id="hero">
     <div class="hero-tag">QA Lead · Automation · AI</div>
-    <h1 class="hero-name">Luis<br><span>Gamboa.</span></h1>
+    <h1 class="hero-name">Luis<br><span>Gamboa</span></h1>
     <p class="hero-title">Senior QA Engineer &amp; AI Testing Lead</p>
     <p class="hero-sub">
       <b>Nearly 8 years breaking software before users do.</b> I lead QA teams, build automation frameworks from zero, and am currently driving the adoption of <b>AI-powered testing</b> in Agile environments — remotely for U.S. companies from Colombia.
@@ -200,7 +201,7 @@
     <div class="hero-links">
       <a class="btn" href="mailto:lmriosg95@gmail.com">Hire me</a>
       <a class="btn btn-ghost" href="https://www.linkedin.com/in/luismgamboa" target="_blank">LinkedIn</a>
-      <a class="btn btn-ghost" href="#" onclick="alert('CV coming soon — check back shortly.'); return false;">↓ Download CV</a>
+      <a class="btn btn-ghost" href="https://drive.google.com/uc?export=download&id=1lvKj3f5K561w0fnIvrayBtO0-QvLl3_x" target="_blank">↓ Download CV</a>
     </div>
   </section>
 
