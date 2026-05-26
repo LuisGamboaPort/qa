@@ -15,7 +15,7 @@
     --muted: #666;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  html { scroll-behavior: smooth; scroll-padding-top: 0; }
+  html { scroll-behavior: smooth; }
   body { overflow-x: hidden; }
   body {
     background: var(--black);
@@ -55,7 +55,7 @@
   }
   .label::after { content: ''; flex: 1; height: 1px; background: #1c1c1c; }
 
-  #hero { padding-top: 9rem; padding-bottom: 5rem; scroll-margin-top: 0; }
+  #hero { padding-top: 9rem; padding-bottom: 5rem; }
   .hero-tag {
     display: inline-block;
     font-family: 'JetBrains Mono', monospace;
@@ -176,7 +176,7 @@
   }
 </style>
 </head>
-<body>
+<body onload="window.scrollTo(0,0)">
 
 <nav>
   <span class="nav-name">LG // QA</span>
